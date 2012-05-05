@@ -15,11 +15,11 @@ class Skill(models.Model):
         return self.name
 
 
-class UserProfile(models.Model):
+class UserProfile2(models.Model):
     user = models.OneToOneField(User, unique=True)
     location = models.ForeignKey('Location', default='Berlin')
-    contacts = models.ManyToManyField('UserProfile', null=True, blank=True)
-    skill = models.ManyToManyField(Skill, null=True, blank=True, through='SkillDetails')
+    contacts = models.ManyToManyField('self', null=True, blank=True)
+    # skill = models.ManyToManyField(Skill, null=True, blank=True, through='SkillDetails')  # doesn't work
     company = models.ForeignKey('Company', null=True, blank=True)
     #pic = URLField()
     #wanted_skill = models.ManyToManyField('Skill', null=True, blank=True)
@@ -39,7 +39,7 @@ class Company(models.Model):
 
 class SkillDetails(models.Model):
     STATUS_CHOICES = (('wanted','wanted'),('offered','offered'))
-    user = models.ForeignKey('UserProfile')
+    user = models.ForeignKey(User)
     skill = models.ForeignKey('Skill')
     status = models.CharField(choices = STATUS_CHOICES, max_length=20)
     counter = models.PositiveIntegerField(default=0)
@@ -48,7 +48,7 @@ class SkillDetails(models.Model):
 class Problem(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
-    user = models.ForeignKey(UserProfile)
+    user = models.ForeignKey(User)
     skills = models.ManyToManyField(Skill, null=True, blank=True)
     #date = models.DateTimeField(auto_now=True)
 
@@ -88,7 +88,7 @@ class Feedback(models.Model):
     """Stores information about a feedback interaction between users."""
     text = models.TextField(null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True)
-    user = models.ForeignKey(UserProfile)
+    user = models.ForeignKey(User)
 
     class Meta:
         verbose_name = 'feedback'
