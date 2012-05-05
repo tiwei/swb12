@@ -176,6 +176,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+LOGIN_URL = '/auth/login/linkedin/'
+
 LINKEDIN_CONSUMER_KEY = ''
 LINKEDIN_CONSUMER_SECRET = ''
 

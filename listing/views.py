@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from accounts.models import Problem
+from core_models.models import Problem
+from .forms import SubmitRequest
 
 
 def submit_request(request):
@@ -7,9 +8,8 @@ def submit_request(request):
     if form.is_valid():
         print form
         print dir(form)
-        return HttpResponseRedirect('/thanks/') # Redirect after POST
-
-    return render_to_response('contact.html', {
+        return HttpResponseRedirect('/thanks/')  # Redirect after POST
+    return render(request, 'contact.html', {
         'form': form,
     })
 
