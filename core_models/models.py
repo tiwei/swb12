@@ -49,7 +49,7 @@ class Problem(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     user = models.ForeignKey(UserProfile)
-    skills = models.ManyToMany(Skill, null=True, blank=True)
+    skills = models.ManyToManyField(Skill, null=True, blank=True)
     #date = models.DateTimeField(auto_now=True)
 
     class Meta:
