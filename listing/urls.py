@@ -5,6 +5,6 @@ from listing.views import listings
 
 urlpatterns = patterns('',
     #Listings
-    url(r'^/$', listings,
+    url(r'^$', listings,
         name='listings'),
 )

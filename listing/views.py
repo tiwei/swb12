@@ -16,6 +16,6 @@ def submit_request(request):
 
 def listings(request):
     problems = Problem.objects.all()
-    return render(request, 'listing.html', {
+    return render(request, 'listing/listing.html', {
         'problems': problems,
         })

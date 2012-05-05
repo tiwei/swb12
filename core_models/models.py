@@ -41,7 +41,7 @@ class SkillDetails(models.Model):
     STATUS_CHOICES = (('wanted','wanted'),('offered','offered'))
     user = models.ForeignKey('UserProfile')
     skill = models.ForeignKey('Skill')
-    status = models.CharField(choices = STATUS_CHOICES,max_length=20)
+    status = models.CharField(choices = STATUS_CHOICES, max_length=20)
     counter = models.PositiveIntegerField(default=0)
 
 
@@ -49,9 +49,8 @@ class Problem(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     user = models.ForeignKey(UserProfile)
-    skill = models.ForeignKey(Skill, null=True, blank=True)
+    skills = models.ManyToMany(Skill, null=True, blank=True)
     #date = models.DateTimeField(auto_now=True)
-
 
     class Meta:
         verbose_name = 'problem'
