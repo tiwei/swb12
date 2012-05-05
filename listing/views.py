@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from listings.models import Problem
+from listing.models import Problem
 
 
 def submit_request(request):
