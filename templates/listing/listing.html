@@ -5,9 +5,8 @@
     <div class="container">
       <div class="row">
         <div class="btn-group results-types">
-          <button class="btn active"><h3>Offers (38)</h3></button>
-          <button class="btn"><h3>Requests (14)</h3></button>
-          <button class="btn"><h3>Persons (214)</h3></button>
+          <button class="btn active"><h3>Problems ({{ problems.length }})</h3></button>
+          <button class="btn"><h3>Persons ({{ persons.length }})</h3></button>
         </div>
       </div>
 
@@ -16,7 +15,7 @@
         <div class="span9">
           <h3>{{ problem.title }}</h3>
           <div class="tag-list">
-            {% for skill in problems.skills %}
+            {% for skill in problem.skills %}
               <span class="label label-success">{{ skill.name }}</span>
             {% endfor %}
           </div>
@@ -28,7 +27,6 @@
           <a class="btn btn-large btn-success">Do it!</a>
         </div>
       </div>
- {{ problem }}
 {% endfor %}
 
       <hr>
@@ -36,32 +34,6 @@
         Add Task
       </a>
 
-      <div class="modal" id="task-input-modal">
-        <div class="modal-header">
-          <button class="close" data-dismiss="modal">x</button>
-          <h3>Add a task</h3>
-        </div>
-        <div class="modal-body">
-          <form method="post">
-            <label class="radio inline">
-              <input type="radio" name="task-type" value="offer" checked>
-                Offer
-            </label>
-            <label class="radio inline">
-              <input type="radio" name="task-type" value="request" checked>
-                Request
-            </label>
-            <input class="span5" type="text" placeholder="Title of Task">
-            <input class="span5" type="text" placeholder="Related Skills">
-            <textarea class="span5" rows="5" type="text"
-              placeholder="Describe the task"></textarea>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn" data-dismiss="modal">Cancel</a>
-          <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-      </div>
 
       <footer>
         <p>&copy; Company 2012</p>
