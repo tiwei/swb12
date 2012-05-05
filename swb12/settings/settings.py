@@ -123,7 +123,7 @@ INSTALLED_APPS = (
     'social_auth',
     'south',
     'launch',
-    'core_models'
+    # 'core_models', # doesn't work yet
     'accounts',
 )
 
