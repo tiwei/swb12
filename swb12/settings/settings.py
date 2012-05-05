@@ -161,6 +161,7 @@ AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 LINKEDIN_EXTRA_FIELD_SELECTORS = [
     'location',
     'skills',
+    'public-profile-url',
 ]
 
 LINKEDIN_EXTRA_DATA = [
@@ -169,6 +170,7 @@ LINKEDIN_EXTRA_DATA = [
     ('last-name', 'last_name'),
     ('location', 'location'),
     ('skills', 'skills'),
+    ('public-profile-url', 'url'),
 ]
 
 AUTHENTICATION_BACKENDS = (

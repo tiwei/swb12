@@ -1,11 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
+from social_auth.signals import socialauth_registered
 
 
 class Country(models.Model):
     code = models.CharField(max_length=5)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True, null=True)
 
 
 class City(models.Model):
@@ -14,6 +15,9 @@ class City(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
 
 
 class UserProfile(models.Model):
@@ -29,8 +33,18 @@ class UserProfile(models.Model):
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
-        print dir(instance)
-        
+        pass
+        # country = Country.objects.get_or_create(name=)
+        # UserProfile.objects.create(user=instance)
 
 post_save.connect(create_user_profile, sender=User)
+
+
+def fill_user_profile(sender, user, response, details, **kwargs):
+    if 'skills' in response and 'skill' in response['skills']:
+        # profile = user.get_profile()
+        for sk in response['skills']['skill']:
+            skill = Skill.objects.get_or_create(name=sk['skill']['name'])
+            # profile
+
+socialauth_registered.connect(fill_user_profile)
