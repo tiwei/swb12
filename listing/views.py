@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from listings.models import Problem
+from accounts.models import Problem
+
 
 def submit_request(request):
     form = SubmitRequest(request.POST or None)

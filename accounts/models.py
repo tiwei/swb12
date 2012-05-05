@@ -22,29 +22,30 @@ class Skill(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    country = models.ForeignKey(Country)
-    city = models.ForeignKey(City)
+    country = models.ForeignKey(Country, null=True)
+    city = models.ForeignKey(City, null=True)
     skills_offered = models.ManyToManyField(Skill, related_name='offered_set')
     skills_wanted = models.ManyToManyField(Skill, related_name='wanted_set')
 
     def __unicode__(self):
-        return self.user
+        return self.user.username
 
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        pass
+        UserProfile.objects.create(user=instance)
         # country = Country.objects.get_or_create(name=)
-        # UserProfile.objects.create(user=instance)
+        # 
 
 post_save.connect(create_user_profile, sender=User)
 
 
 def fill_user_profile(sender, user, response, details, **kwargs):
     if 'skills' in response and 'skill' in response['skills']:
-        # profile = user.get_profile()
+        profile = user.get_profile()
         for sk in response['skills']['skill']:
             skill = Skill.objects.get_or_create(name=sk['skill']['name'])
-            # profile
+            print skill
+            profile.skills_offered.add(skill)
 
 socialauth_registered.connect(fill_user_profile)
