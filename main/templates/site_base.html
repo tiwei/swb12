@@ -1,0 +1,19 @@
+{% extends "theme_base.html" %}
+
+{% block nav %}
+    {% if user.is_authenticated %}
+        <ul>
+            <li id="tab_profile"><a href="URL OF USER PROFILE">Profile</a></li>
+            <li id="tab_notices"><a href="URL OF SOMETHING ELSE">Notices</a></li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+{% block extra_body_base %}
+
+    {% block extra_body %}{% endblock %}
+{% endblock %}
