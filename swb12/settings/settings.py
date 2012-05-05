@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'social_auth',
     'south',
     'launch',
+    'main',
     # 'core_models', # doesn't work yet
     'accounts',
 )
