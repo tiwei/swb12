@@ -15,7 +15,7 @@
         <div class="span9">
           <h3>{{ problem.title }}</h3>
           <div class="tag-list">
-            {% for skill in problems.skills %}
+            {% for skill in problem.skills %}
               <span class="label label-success">{{ skill.name }}</span>
             {% endfor %}
           </div>
@@ -27,7 +27,6 @@
           <a class="btn btn-large btn-success">Do it!</a>
         </div>
       </div>
- {{ problem }}
 {% endfor %}
 
       <hr>
