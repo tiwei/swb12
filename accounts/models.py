@@ -29,8 +29,7 @@ class UserProfile(models.Model):
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
+        print dir(instance.social_auth)
         UserProfile.objects.create(user=instance)
-        print dir(instance)
-        
 
 post_save.connect(create_user_profile, sender=User)
