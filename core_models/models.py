@@ -2,13 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
-    
 class Skill(models.Model):
     """Stores information about a skill"""
     name = models.CharField(max_length=20)
     slug = models.SlugField(max_length=20, unique=True)
-
 
     class Meta:
         verbose_name = 'skill'
@@ -17,11 +14,14 @@ class Skill(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True)
     location = models.ForeignKey('Location', default='Berlin')
     contacts = models.ManyToManyField('UserProfile', null=True, blank=True)
     skill = models.ManyToManyField(Skill, null=True, blank=True, through='SkillDetails')
+    company = models.ForeignKey('Company', null=True, blank=True)
+    #pic = URLField()
     #wanted_skill = models.ManyToManyField('Skill', null=True, blank=True)
 
     class Meta:
@@ -30,18 +30,27 @@ class UserProfile(models.Model):
 
     def __unicode__(self):
         return self.user
-    
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=30)
+
+
+
 class SkillDetails(models.Model):
     STATUS_CHOICES = (('wanted','wanted'),('offered','offered'))
     user = models.ForeignKey('UserProfile')
     skill = models.ForeignKey('Skill')
     status = models.CharField(choices = STATUS_CHOICES,max_length=20)
-    
+    counter = models.PositiveIntegerField(default=0)
+
+
 class Problem(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     user = models.ForeignKey(UserProfile)
     skill = models.ForeignKey(Skill, null=True, blank=True)
+    #date = models.DateTimeField(auto_now=True)
 
 
     class Meta:
@@ -80,6 +89,7 @@ class Feedback(models.Model):
     """Stores information about a feedback interaction between users."""
     text = models.TextField(null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True)
+    user = models.ForeignKey(UserProfile)
 
     class Meta:
         verbose_name = 'feedback'
