@@ -8,3 +8,9 @@ body {
 	width: 200px;
 	height: 52px;
 }
+
+ .navbar .divider-vertical {
+ 	background-color: #999;
+ 	border: none;
+ }
+ 
