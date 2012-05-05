@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'social_auth',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -149,3 +150,13 @@ LOGGING = {
         },
     }
 }
+
+# LINKEDIN_EXTRA_FIELD_SELECTORS
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LINKEDIN_CONSUMER_KEY = ''
+LINKEDIN_CONSUMER_SECRET = ''
