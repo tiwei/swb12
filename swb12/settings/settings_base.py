@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Michal A', 'michal@ert.pl'),
 )
 
 MANAGERS = ADMINS
@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'social_auth',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
