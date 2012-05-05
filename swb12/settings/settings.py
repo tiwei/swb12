@@ -60,7 +60,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = 'static'
+STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -68,9 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    'static',
 )
 
 # List of finder classes that know how to find static files in
@@ -107,9 +105,7 @@ ROOT_URLCONF = 'swb12.urls'
 WSGI_APPLICATION = 'swb12.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    'templates',
 )
 
 INSTALLED_APPS = (
@@ -162,6 +158,7 @@ AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 LINKEDIN_EXTRA_FIELD_SELECTORS = [
     'location',
     'skills',
+    'public-profile-url',
 ]
 
 LINKEDIN_EXTRA_DATA = [
@@ -170,6 +167,7 @@ LINKEDIN_EXTRA_DATA = [
     ('last-name', 'last_name'),
     ('location', 'location'),
     ('skills', 'skills'),
+    ('public-profile-url', 'url'),
 ]
 
 AUTHENTICATION_BACKENDS = (
