@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'south',
     'launch',
     'core_models'
+    'accounts',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -154,6 +155,8 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 LINKEDIN_EXTRA_FIELD_SELECTORS = [
     'location',
