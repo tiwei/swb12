@@ -7,7 +7,7 @@ from django.views.generic.simple import direct_to_template
 
 #Static Pages in main app
 urlpatterns = patterns("",
-    url(r"^$", direct_to_template, {"template": "../../main/templates/homepage.html",}, name="home"),
+    url(r"^$", direct_to_template, {"template": "../templates/index.html"}, name="home"),
     url(r"^about$", direct_to_template, {"template": "../../main/templates/about.html"}, name="about"),
     url(r"^terms/$", direct_to_template, {"template": "../../main/templates/terms.html"}, name="terms"),
     url(r"^privacy/$", direct_to_template, {"template": "../../main/templates/privacy.html"}, name="privacy"),
