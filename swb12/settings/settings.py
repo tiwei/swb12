@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'social_auth',
     'south',
+    'launch',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -162,3 +163,8 @@ AUTHENTICATION_BACKENDS = (
 
 LINKEDIN_CONSUMER_KEY = ''
 LINKEDIN_CONSUMER_SECRET = ''
+
+try:
+    from settings_local import *
+except:
+    pass
