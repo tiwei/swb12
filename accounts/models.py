@@ -3,6 +3,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from social_auth.signals import socialauth_registered
 
+class Problem(models.Model):
+    pass
 
 class Country(models.Model):
     code = models.CharField(max_length=5)
@@ -44,8 +46,7 @@ def fill_user_profile(sender, user, response, details, **kwargs):
     if 'skills' in response and 'skill' in response['skills']:
         profile = user.get_profile()
         for sk in response['skills']['skill']:
-            skill = Skill.objects.get_or_create(name=sk['skill']['name'])
-            print skill
+            skill, was_created = Skill.objects.get_or_create(name=sk['skill']['name'])
             profile.skills_offered.add(skill)
 
 socialauth_registered.connect(fill_user_profile)
