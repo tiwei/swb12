@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
 	{% block extrahead %}{% endblock extrahead %}
 </head>
+<body>
 <a href="{% url socialauth_begin 'linkedin' %}" id="linkedin_signin"></a>
 {% block content %}{% endblock content %}
+</body>
 </html>
