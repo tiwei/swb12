@@ -2,12 +2,27 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class UserProfile(models.model):
-    user = models.oneToOneField(User, unique=True)
+
+    
+class Skill(models.Model):
+    """Stores information about a skill"""
+    name = models.CharField(max_length=20)
+    slug = models.SlugField(max_length=20, unique=True)
+
+
+    class Meta:
+        verbose_name = 'skill'
+        verbose_name_plural = 'skills'
+
+    def __unicode__(self):
+        return self.name
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, unique=True)
     location = models.ForeignKey('Location', default='Berlin')
-    contacts = models.ManyToMany('UserProfile', null=True, blank=True)
-    offered_skill = models.ManyToManyField('Skill', null=True, blank=True)
-    wanted_skill = models.ManyToManyField('Skill', null=True, blank=True)
+    contacts = models.ManyToManyField('UserProfile', null=True, blank=True)
+    skill = models.ManyToManyField(Skill, null=True, blank=True, through='SkillDetails')
+    #wanted_skill = models.ManyToManyField('Skill', null=True, blank=True)
 
     class Meta:
         verbose_name = 'userprofile'
@@ -15,11 +30,19 @@ class UserProfile(models.model):
 
     def __unicode__(self):
         return self.user
-
-
+    
+class SkillDetails(models.Model):
+    STATUS_CHOICES = (('wanted','wanted'),('offered','offered'))
+    user = models.ForeignKey('UserProfile')
+    skill = models.ForeignKey('Skill')
+    status = models.CharField(choices = STATUS_CHOICES,max_length=20)
+    
 class Problem(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
+    user = models.ForeignKey(UserProfile)
+    problem = models.ForeignKey(Skill, null=True, blank=True)
+
 
     class Meta:
         verbose_name = 'problem'
@@ -28,19 +51,6 @@ class Problem(models.Model):
     def __unicode__(self):
         return self.title
 
-
-class Skill(models.Model):
-    """Stores information about a skill"""
-    name = models.CharField(max_length=20)
-    slug = models.SlugField(max_length=20, unique=True)
-    problem = models.ForeignKey(Problem, null=True, blank=True)
-
-    class Meta:
-        verbose_name = 'skill'
-        verbose_name_plural = 'skills'
-
-    def __unicode__(self):
-        return self.name
 
 
 COUNTRIES = (

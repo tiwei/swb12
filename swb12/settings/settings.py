@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'social_auth',
     'south',
     'launch',
+    'core_models'
 )
 
 # A sample logging configuration. The only tangible logging
