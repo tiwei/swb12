@@ -1,4 +1,4 @@
-from accounts.models import Skill, UserProfile
+from .models import Skill, UserProfile
 from django.contrib import admin
  
  
