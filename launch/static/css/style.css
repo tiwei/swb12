@@ -1,0 +1,10 @@
+body {
+	margin: 40px;
+}
+
+#linkedin_signin {
+	display: block;
+	background-image: url('../img/widget_signin.png');
+	width: 200px;
+	height: 52px;
+}
