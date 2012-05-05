@@ -154,7 +154,18 @@ LOGGING = {
     }
 }
 
-# LINKEDIN_EXTRA_FIELD_SELECTORS
+LINKEDIN_EXTRA_FIELD_SELECTORS = [
+    'location',
+    'skills',
+]
+
+LINKEDIN_EXTRA_DATA = [
+    ('id', 'id'),
+    ('first-name', 'first_name'),
+    ('last-name', 'last_name'),
+    ('location', 'location'),
+    ('skills', 'skills'),
+]
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.linkedin.LinkedinBackend',
