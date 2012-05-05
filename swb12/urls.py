@@ -21,6 +21,5 @@ urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^auth/', include('social_auth.urls')),
     url(r'^accounts/', include('accounts.urls')),
-    
+    url(r'^listings/', include('listings.urls')),
 )
-
