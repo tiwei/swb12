@@ -2,27 +2,6 @@
 
 {% block content %}
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
     <div class="container">
       <div class="row">
         <div class="btn-group results-types">
@@ -32,41 +11,26 @@
         </div>
       </div>
 
+{% for problem in problems %}
       <div class="row well task-list-item">
         <div class="span9">
-          <h3>Do some programming</h3>
+          <h3>{{ problem.title }}</h3>
           <div class="tag-list">
-            <span class="label label-success">C++</span>
-            <span class="label label-success">Programming</span>
+            {% for skill in problems.skills %}
+              <span class="label label-success">{{ skill.name }}</span>
+            {% endfor %}
           </div>
-          <p><a>Hans</a> from <a>Google</a></p>
-          <a class="btn btn-mini">show more</a>
+          <p><a>{{ problem.user.name }}</a> from <a>{{
+            problem.user.company }}</a></p>
+          <p>{{ problem.description }}</p>
         </div>
         <div class="span2">
           <a class="btn btn-large btn-success">Do it!</a>
         </div>
       </div>
+ {{ problem }}
+{% endfor %}
 
-      <div class="row well task-list-item">
-        <div class="span9">
-        <h3>SEM for our awesome product</h3>
-        <div class="tag-list">
-          <span class="label label-success">SEM</span>
-          <span class="label label-success">Marketing</span>
-          <span class="label label-success">Sales Writing</span>
-        </div>
-        <p><a>John Doe</a> from <a>Apple</a></p>
-        <a class="btn btn-mini">show less</a>
-        <p>We need someone for our SEM to promote our awesome product
-        and so on.We need someone for our SEM to promote our awesome product
-        and so on.We need someone for our SEM to promote our awesome product
-        and so on.We need someone for our SEM to promote our awesome product
-        and so on.</p>
-        </div>
-        <div class="span2">
-          <a class="btn btn-large btn-success">Do it!</a>
-        </div>
-      </div>
       <hr>
       <a class="btn" data-toggle="modal" href="#task-input-modal">
         Add Task
@@ -104,11 +68,5 @@
       </footer>
       </p>
     </div> <!-- /container -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-
-<script src="js/libs/bootstrap/bootstrap.min.js"></script>
-
-<script src="js/script.js"></script>
 
 {% endblock content %}
