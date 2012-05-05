@@ -6,6 +6,7 @@
 	{% block extrahead %}{% endblock extrahead %}
 </head>
 <body>
+{% block header %}{% endblock header %}
 <a href="{% url socialauth_begin 'linkedin' %}" id="linkedin_signin"></a>
 {% block content %}{% endblock content %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
