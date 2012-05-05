@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block input_form_modal %}
+      <div class="modal" id="task-input-modal">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">x</button>
+          <h3>Add a task</h3>
+        </div>
+        <div class="modal-body">
+          <form method="post">
+            <label class="radio inline">
+              <input type="radio" name="task-type" value="offer" checked>
+                Offer
+            </label>
+            <label class="radio inline">
+              <input type="radio" name="task-type" value="request" checked>
+                Request
+            </label>
+            <input class="span5" type="text" placeholder="Title of Task">
+            <input class="span5" type="text" placeholder="Related Skills">
+            <textarea class="span5" rows="5" type="text"
+              placeholder="Describe the task"></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+{% endblock input_form_modal %}
