@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<ul>
+	{% for skill in skill_list %}
+		<li>
+			{{ skill.name }}
+		</li>
+	{% endfor %}
+</ul>
 <div class="row">
 	&nbsp;
 </div>
