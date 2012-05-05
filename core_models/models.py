@@ -41,7 +41,7 @@ class Problem(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     user = models.ForeignKey(UserProfile)
-    problem = models.ForeignKey(Skill, null=True, blank=True)
+    skill = models.ForeignKey(Skill, null=True, blank=True)
 
 
     class Meta:
