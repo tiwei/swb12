@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .forms import SubmitRequest
 from .models import ProblemForm
 from .models import Problem
-#from .models import Person
 
 def submit_request(request):
     form = SubmitRequest(request.POST or None)
