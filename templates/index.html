@@ -9,9 +9,9 @@ var ctr = 0;
 function initRotateText() {
 	rotatingTextElement = document.getElementById("switch");
 	rotatingText[0] = rotatingTextElement.innerHTML; // store the content that's already on the page
-	rotatingText[1] = "How am I going to <br>automate my Tweets?";
-	rotatingText[2] = "How am I going to <br>recruit new Developers?";
-	rotatingText[3] = "<img src='../static/img/logo_banner.png' width='70%'>";
+	rotatingText[1] = "@johnk I just shot my self <br>in the foot with git, Help!";
+	rotatingText[2] = "@kevink Got techcrunched need, <br>a sysadmin and servers, quick!";
+	rotatingText[3] = "<img src='../static/img/skillfinder_1024.png' width='75%'>";
 	setInterval(rotateText, 2000);
 }
 function rotateText() {
@@ -24,6 +24,8 @@ function rotateText() {
 window.onload = initRotateText;
 </script>
 
+<link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'>
+
 <div class="row">
 	<div class="span12">
 		<div class="hero-unit" id="bigbanner">
@@ -31,7 +33,7 @@ window.onload = initRotateText;
 				<div class="span10">
 					<div style="height: 125px;">
 						<!-- ><img src="../static/img/logo_banner.png" width="50%"> -->
-						<h1><span id="switch">How am I going to <br>add Facebook Login?</span></h1>
+						<h1><span id="switch">@solala Can anyone help us <br>with the founder agreement?</span></h1>
 					</div>
 				</div>
 			</div>
@@ -63,7 +65,7 @@ window.onload = initRotateText;
 
 <div class="row">
 	<div class="span12">
-		<h2>We help startups that need very specific skills for a short amount of time so the job can be done as a favor</h2></br>
+		<h1 style="font-family: 'Allerta', sans-serif;">We help startups that need very specific skills for a short amount of time so the job can be done as a favor</h1></br>
 	</div>
 </div>
 
