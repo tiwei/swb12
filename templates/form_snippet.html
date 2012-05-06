@@ -1,0 +1,23 @@
+{% for field in form.visible_fields %}
+	<div class="control-group{% if field.errors %} error{% endif %}">
+		<label class="control-label" for="{{ field.id_for_label }}">
+			{{ field.label }}
+		</label>
+		<div class="controls">
+			{{ field }}
+			{% if field.errors %}
+				<span class="help-inline">
+					{{ field.errors|join:", " }}
+				</span>
+			{% else %}
+				<span class="help-inline">
+					{{ field.help_text }}
+				</span>
+			{% endif %}
+			</span>
+		</div>
+	</div>
+{% endfor %}
+{% for field in form.hidden_fields %}
+	{{ field }}
+{% endfor %}
