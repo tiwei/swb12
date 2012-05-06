@@ -48,14 +48,26 @@ window.onload = initRotateText;
 			<h2>NEED HELP?<br>POST YOUR STARTUP PROBLEM!</h2>
 			</br></br></br></br><br></br></br></br></br></br></br>
 
-			<a href='listing/add/'> <img src="../static/img/linkedin.png"> </a>
+			<a href='listing/add/'>
+				{% if user.is_authenticated %}
+					<img src="{{ STATIC_URL }}img/post_a_problem_btn.png">
+				{% else %}
+					<img src="{{ STATIC_URL }}img/linkedin.png">
+				{% endif %}
+			</a>
 		</div>
 	</div>
 	<div class="span6">
 		<div class="hero-unit" id="solution" align="middle">
 			<h2>YOU ARE AWESOME! <br>HELP A STARTUP!</h2>
 			</br></br></br></br><br></br></br></br></br></br></br>
-			<a href='listing/'>  <img src="../static/img/offer_your_help_btn.png"> </a>
+			<a href='listing/'>
+				{% if user.is_authenticated %}
+					<img src="../static/img/offer_your_help_btn.png">
+				{% else %}
+					<img src="{{ STATIC_URL }}img/linkedin.png">
+				{% endif %}
+			</a>
 		</div>
 	</div>
 </div>
@@ -66,7 +78,9 @@ window.onload = initRotateText;
 	<div class="span12">
 		<h1 style="font-family: 'Allerta', sans-serif;">OUR MISSION</h1>
 		<br>
+		<blockquote>
 		<h1 style="font-family: 'Allerta', sans-serif;">We help <span style="color: #f05501;">startups</span> that need very specific skills for a short amount of time so the job can be done as a <span style="color: #089644;">favor</span>.</h1></br>
+		</blockquote>
 	</div>
 </div>
 <br><br><br>

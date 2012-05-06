@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<ul>
-	{% for skill in profile.skills_offered.all %}
-		<li>
-			{{ skill }}
-		</li>
-	{% endfor %}
-</ul>
-{{ profile.user.get_full_name }}
 <div class="row">
 	&nbsp;
 </div>
@@ -20,8 +12,8 @@
 				<img src="img/profile2.png" width="90"/>
 			</div>
 			<div class="span3">
-				<h3>Hans Wurst</h3>
-				<h4>Startup Weekend</h4>
+				<h3>{{ profile.user.get_full_name }}</h3>
+				<h4>{{ profile.city }}</h4>
 	          	<input name="star1" type="radio" class="star star1" disabled="disabled"/>
 				<input name="star1" type="radio" class="star star1" disabled="disabled"/>
 				<input name="star1" type="radio" class="star star1" disabled="disabled" checked="checked"/>
@@ -29,10 +21,10 @@
 				<input name="star1" type="radio" class="star star1" disabled="disabled"/>
 				<br/>
 				<div id="socials">
-					<a href="/"><img src="img/face.png"/></a>
-					<a href="/"><img src="img/in.png"/></a>
-					<a href="/"><img src="img/tw.png"/></a>
-					<a href="/"><img src="img/del.png"/></a>
+					<a href="http://facebook.com"><img src="img/face.png"/></a>
+					<a href="http://linkedin.com"><img src="img/in.png"/></a>
+					<a href="http://twitter.com"><img src="img/tw.png"/></a>
+					<a href="http://delicious.com"><img src="img/del.png"/></a>
 				</div>
 			</div>
 		</div>
@@ -43,35 +35,26 @@
 			<div class="span5">
 				<div class="row">
 					<div class="span2 desc">
-						Aktuell
+						Country
 					</div>
 					<div class="span3">
-						Founder bei xyz gmbh
+						{{ profile.country }}
 					</div>
 				</div>
 				
 				<div class="row">
 					<div class="span2 desc">
-						Früher
+						Education
 					</div>
 					<div class="span3">
-						Founder bei abc.de
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="span2 desc">
-						Ausbildung
-					</div>
-					<div class="span3">
-						Hochschule für
+						Startup Weekend
 					</div>
 				</div>
 
 				
 				<div class="row">
 					<div class="span2 desc">
-						Kontakte
+						Contacts
 					</div>
 					<div class="span3">
 						500+
@@ -85,11 +68,39 @@
 	<div class="span5">	
 		<div id="skills"></div>
 		<script type="text/javascript">
-		var tags = [{tag: "python", count: 76}, {tag: "mobile" , count :32}, {tag: "php" , count :4}, {tag: "ruby" , count :20},
-		{tag: "html5" , count :87},{tag: "ios" , count :34},{tag: "iphone" , count :30},{tag: "mootools" , count :87},
-		{tag: "javascript" , count :45},{tag: "startup" , count :90},{tag: "contract-revenue" , count :22},{tag: "pitch-training" , count :60},
-		{tag: "event-management" , count :67},{tag: "pitching" , count :10},{tag: "jquery" , count :50},{tag: "coffeescript" , count :14},
-		{tag: "nodejs" , count :30},{tag: "nosql" , count :9}];
+		var tags = [
+		
+		{% for skill in profile.skills_offered.all %}
+			{
+				tag: "{{ skill }}", count: Math.round(Math.random()*100)
+			},
+		{% endfor %}
+
+		];
+		
+		/*
+		
+		{tag: "python", count: 76}, 
+		{tag: "mobile" , count :32}, 
+		{tag: "php" , count :4}, 
+		{tag: "ruby" , count :20},
+		{tag: "html5" , count :87},
+		{tag: "ios" , count :34},
+		{tag: "iphone" , count :30},
+		{tag: "mootools" , count :87},
+		{tag: "javascript" , count :45},
+		{tag: "startup" , count :90},
+		{tag: "contract-revenue" , count :22},
+		{tag: "pitch-training" , count :60},
+		{tag: "event-management" , count :67},
+		{tag: "pitching" , count :10},
+		{tag: "jquery" , count :50},
+		{tag: "coffeescript" , count :14},
+		{tag: "nodejs" , count :30},
+		{tag: "nosql" , count :9}
+		
+		
+		*/
 		</script>
 	</div>
 	<div class="span1">&nbsp;</div>
@@ -103,10 +114,12 @@
 	
 		<div class="row well task-list-item">
 		        <div class="span7">
-		          <h3>Do some programming</h3>
+		          <h3>Implement a facebook-connect login for our ruby-based hacker-portal</h3>
 		          <div class="tag-list">
-		            <span class="label label-important">C++</span>
-		            <span class="label label-important">Programming</span>
+		            <span class="label label-important">ruby</span>
+		            <span class="label label-important">facebook</span>
+					<span class="label label-important">logins</span>
+					<span class="label label-important">rails</span>
 		          </div>
 		          <a class="btn btn-mini">show more</a>
 		        </div>
@@ -117,10 +130,17 @@
 
 			<div class="row well task-list-item">
 			        <div class="span7">
-			          <h3>Do some programming</h3>
+			          <h3>set up a mongodb-system on a ubuntu-server-cluster</h3>
 			          <div class="tag-list">
-			            <span class="label label-important">C++</span>
-			            <span class="label label-important">Programming</span>
+			            <span class="label label-important">mongo</span>
+			            <span class="label label-important">ubuntu</span>
+			
+						<span class="label label-important">mongodb</span>
+						<span class="label label-important">cluster</span>
+						<span class="label label-important">server</span>
+				    	<span class="label label-important">root</span>
+						
+						
 			          </div>
 			          <a class="btn btn-mini">show more</a>
 			        </div>
@@ -129,23 +149,29 @@
 			        </div>
 			</div>
 		
-				<div class="row well task-list-item past-item">
-				        <div class="span7">
-				          <h3>Do some programming</h3>
-				          <div class="tag-list">
-				            <span class="label label-success">C++</span>
-				            <span class="label label-success">Programming</span>
-				          </div>
-				          <a class="btn btn-mini">show more</a>
-				        </div>
-				        <div class="span2">
-				          	<input name="star3" type="radio" class="star star3" />
-							<input name="star3" type="radio" class="star star3" />
-							<input name="star3" type="radio" class="star star3" />
-							<input name="star3" type="radio" class="star star3" />
-							<input name="star3" type="radio" class="star star3" />
-				        </div>
-				</div> 
+			<div class="row well task-list-item past-item">
+			        <div class="span7">
+			          <h3>review seed-funding-contract from our new VC</h3>
+			          <div class="tag-list">
+			            <span class="label label-success">seed-funding</span>
+			            <span class="label label-success">vc</span>
+			
+						<span class="label label-success">law</span>
+						<span class="label label-success">contract</span>
+						<span class="label label-success">review</span>
+						<span class="label label-success">seed-contract</span>	
+						
+			          </div>
+			          <a class="btn btn-mini">show more</a>
+			        </div>
+			        <div class="span2">
+			          	<input name="star3" type="radio" class="star star3" />
+						<input name="star3" type="radio" class="star star3" />
+						<input name="star3" type="radio" class="star star3" />
+						<input name="star3" type="radio" class="star star3" />
+						<input name="star3" type="radio" class="star star3" />
+			        </div>
+			</div>
 				
 				
 		</div>
