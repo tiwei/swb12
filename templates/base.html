@@ -6,7 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
 	<script type="text/javascript" src="{{ STATIC_URL }}js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
-	{% block extrahead %}{% endblock extrahead %}
+
+	<link href="../static/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 
 <body>
@@ -15,9 +16,11 @@
 		<div class="container">
 			<a class="brand" href="{% url index %}"><img src="{{ STATIC_URL }}img/logo.png" alt="Favors"></a> 
 			<div class="nav-collapse  pull-right">
-				<ul class="nav">              
-					<li><a href="{% url logout %}">Sign out</a></li>
-					<li class="divider-vertical"></li>
+				<ul class="nav">
+					{% if user.is_authenticated %}
+						<li><a href="{% url logout %}">Sign out</a></li>
+						<li class="divider-vertical"></li>
+					{% endif %}
 					<li><a href="{% url accounts_profile %}">Profile</a></li>
 					<li class="divider-vertical"></li>
 				</ul>
@@ -33,20 +36,25 @@
 <div class="container">
 	{% block content %}{% endblock content %}
 	<hr>
-	<footer>
-		<p>&copy; skillfinder 2012</p>
-	</footer>
+      <footer>
+        <p>&copy; Skillfinder Headquartes Berlin 2012</p><div class="fb-like" data-href="https://www.facebook.com/pages/Skillfinder/291628797592132" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=132833363442809";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+      </footer>
 </div>
-{% include "input_form_modal.html" %}
+{% block input_form_modal %}{% endblock input_form_modal %}
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery/jquery-1.7.2.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-<script src="{{ STATIC_URL }}js/libs/bootstrap/bootstrap.min.js"></script>
-<script src="{{ STATIC_URL }}js/libs/jquery/jquery.tagcloud-2.js"></script>
-<script src="{{ STATIC_URL }}js/libs/jquery/jquery.rating.js"></script>
+<script src="js/libs/bootstrap/bootstrap.min.js"></script>
 
-
-<script src="{{ STATIC_URL }}js/script.js"></script>
+<script src="js/script.js"></script>
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster 
