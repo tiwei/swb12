@@ -9,7 +9,7 @@
 	<div class="span5">
 		<div class="row">
 			<div class="span1">
-				<img src="img/profile2.png" width="90"/>
+				<img src="/static/img/profile2.png" width="90"/>
 			</div>
 			<div class="span3">
 				<h3>{{ profile.user.get_full_name }}</h3>
@@ -21,10 +21,10 @@
 				<input name="star1" type="radio" class="star star1" disabled="disabled"/>
 				<br/>
 				<div id="socials">
-					<a href="http://facebook.com"><img src="img/face.png"/></a>
-					<a href="http://linkedin.com"><img src="img/in.png"/></a>
-					<a href="http://twitter.com"><img src="img/tw.png"/></a>
-					<a href="http://delicious.com"><img src="img/del.png"/></a>
+					<a href="http://facebook.com"><img src="/static/img/face.png"/></a>
+					<a href="http://linkedin.com"><img src="/static/img/in.png"/></a>
+					<a href="http://twitter.com"><img src="/static/img/tw.png"/></a>
+					<a href="http://delicious.com"><img src="/static/img/del.png"/></a>
 				</div>
 			</div>
 		</div>
@@ -72,7 +72,7 @@
 		
 		{% for skill in profile.skills_offered.all %}
 			{
-				tag: "{{ skill }}", count: Math.round(Math.random()*100)
+				tag: "{{ skill }}", count: Math.round(Math.random()*70)
 			},
 		{% endfor %}
 
