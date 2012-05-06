@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from .forms import SubmitRequest
 from .models import ProblemForm
 from .models import Problem
 
+
+@login_required
 def submit_request(request):
     form = SubmitRequest(request.POST or None)
     if form.is_valid():
@@ -26,14 +29,14 @@ def listings_persons(request):
     return render(request, 'listing_persons.html', {
         'persons': persons,
         })
-    
+
+@login_required
 def submit_problem(request):
     form = ProblemForm(request.POST or None)
+    form.instance.user = request.user
     if form.is_valid():
-        new_problem = form.save()
-        new_problem.user = request.user.get_profile()
-        new_problem.save()
-        return HttpResponseRedirect('listing/people')
+        form.save()
+        return redirect(listings_persons)
     return render(request, 'forms/submit_problem.html', {
         'form': form,
     })

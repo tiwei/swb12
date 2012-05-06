@@ -48,14 +48,30 @@ window.onload = initRotateText;
 			<h2>NEED HELP?<br>POST YOUR STARTUP PROBLEM!</h2>
 			</br></br></br></br><br></br></br></br></br></br></br>
 
+<<<<<<< HEAD
 			<a href='listing/add/'> <img src="../static/img/linkedin.png" size="150%"> </a>
+=======
+			<a href='listing/add/'>
+				{% if user.is_authenticated %}
+					<img src="{{ STATIC_URL }}img/post_a_problem_btn.png">
+				{% else %}
+					<img src="{{ STATIC_URL }}img/linkedin.png">
+				{% endif %}
+			</a>
+>>>>>>> 9720a0ca8b9c4f896e57cc249545cc43fa33b38b
 		</div>
 	</div>
 	<div class="span6">
 		<div class="hero-unit" id="solution" align="middle">
 			<h2>YOU ARE AWESOME! <br>HELP A STARTUP!</h2>
 			</br></br></br></br><br></br></br></br></br></br></br>
-			<a href='listing/'>  <img src="../static/img/offer_your_help_btn.png"> </a>
+			<a href='listing/'>
+				{% if user.is_authenticated %}
+					<img src="../static/img/offer_your_help_btn.png">
+				{% else %}
+					<img src="{{ STATIC_URL }}img/linkedin.png">
+				{% endif %}
+			</a>
 		</div>
 	</div>
 </div>
