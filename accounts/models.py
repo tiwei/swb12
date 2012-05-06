@@ -24,13 +24,14 @@ class Skill(models.Model):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, editable=False)
     country = models.ForeignKey(Country, null=True)
     city = models.ForeignKey(City, null=True)
     skills_offered = models.ManyToManyField(Skill, related_name='offered_set')
     skills_wanted = models.ManyToManyField(Skill, related_name='wanted_set')
     #Noted skills will be added after the user interacts with a problem and recieve feedback
     #TODO add it to Migration
+    # ^ added ./manage.py schemamigration --auto accounts
     skills_noted = models.ManyToManyField(Skill, related_name='noted_skills')
 
     def __unicode__(self):
@@ -49,6 +50,9 @@ post_save.connect(create_user_profile, sender=User)
 def fill_user_profile(sender, user, response, details, **kwargs):
     if 'skills' in response and 'skill' in response['skills']:
         profile = user.get_profile()
+        # country = 
+        import pprint
+        pprint.pprint(response)
         for sk in response['skills']['skill']:
             skill, was_created = Skill.objects.get_or_create(name=sk['skill']['name'])
             profile.skills_offered.add(skill)
