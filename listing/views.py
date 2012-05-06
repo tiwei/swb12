@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import SubmitRequest
 from .models import ProblemForm
 from .models import Problem
+from .models import Person
 
 def submit_request(request):
     form = SubmitRequest(request.POST or None)
@@ -18,6 +19,12 @@ def listings(request):
     problems = Problem.objects.all()
     return render(request, 'listing_problems.html', {
         'problems': problems,
+        })
+
+def listings_persons(request):
+    persons = Person.objects.all()
+    return render(request, 'listing_persons.html', {
+        'persons': persons,
         })
     
 def submit_problem(request):
