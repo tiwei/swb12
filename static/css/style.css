@@ -61,6 +61,12 @@ body {
   margin-bottom: 10px;
 }
 
+#bigbanner {
+	background-image: url('../img/guy_banner.png') !important;
+	background-repeat:no-repeat;
+	background-position:right bottom;
+}
+
 /* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
 div.rating-cancel,div.star-rating{float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden}
 div.rating-cancel,div.rating-cancel a{background:url(../img/delete.gif) no-repeat 0 -16px}
