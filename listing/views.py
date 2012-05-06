@@ -33,6 +33,7 @@ def submit_problem(request):
         new_problem = form.save()
         new_problem.user = request.user.get_profile()
         new_problem.save()
+        return HttpResponseRedirect('listing/people')
     return render(request, 'forms/submit_problem.html', {
         'form': form,
     })
