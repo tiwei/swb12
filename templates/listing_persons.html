@@ -2,35 +2,34 @@
 
 {% block content %}
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-      <div class="row">
-        <div class="btn-group results-types">
-          <a class="btn" href="/listing"> <h3>Problems ({{ problems_count }}) </h3></a>
-          <button class="btn active"><h3>Persons ({{ persons_count }})</h3></button>
-          
-        </div>
-      </div>
-
+<div class="row">
+	<div class="btn-group results-types">
+		<a class="btn" href="/listing"> <h3>Problems ({{ problems_count }}) </h3></a>
+		<button class="btn active"><h3>Persons ({{ persons_count }})</h3></button>
+	</div>
+</div>
 {% for person in persons %}
-      <div class="row well task-list-item">
-        <div class="span9">
-          <h3>{{ person.user.get_full_name }}</h3>
-          <div class="tag-list">
-            {% for skill in person.skills_offered.all %}
-              <span class="label label-success">{{ skill.name }}</span>
-            {% endfor %}
-          </div>
-          <p> 
-{{ person.company }}
-From : {{person.city }}, {{person.country }}
-</p>
-          
-        </div>
-        <div class="span2">
-          <a class="btn btn-large btn-success">Ping {{ person.user.first_name }}!</a>
-        </div>
-      </div>
+<div class="row well task-list-item">
+	<div class="span9">
+	<h3>
+		<a href="{% url accounts_profile_show person.id %}">
+			{{ person.user.get_full_name }}
+		</a>
+	</h3>
+		<div class="tag-list">
+			{% for skill in person.skills_offered.all %}
+			<span class="label label-success">{{ skill.name }}</span>
+			{% endfor %}
+		</div>
+		<p> 
+			{{ person.company }}
+			From : {{person.city }}, {{person.country }}
+		</p>
+	</div>
+	<div class="span2">
+		<a class="btn btn-large btn-success">Ping {{ person.user.first_name }}!</a>
+	</div>
+</div>
 {% endfor %}
-
-      <hr>
-
+<hr>
 {% endblock content %}
