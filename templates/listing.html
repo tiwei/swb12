@@ -2,11 +2,10 @@
 
 {% block content %}
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-    <div class="container">
       <div class="row">
         <div class="btn-group results-types">
-          <button class="btn active"><h3>Problems ({{ problems.length }})</h3></button>
-          <button class="btn"><h3>Persons ({{ persons.length }})</h3></button>
+          <button class="btn active"><h3>Problems ({{ len(problems) }})</h3></button>
+          <button class="btn"><h3>Persons ({{ len(persons) }})</h3></button>
         </div>
       </div>
 
@@ -33,13 +32,5 @@
       <a class="btn" data-toggle="modal" href="#task-input-modal">
         Add Task
       </a>
-
-
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
-      
-</p>
-    </div> <!-- /container -->
 
 {% endblock content %}
