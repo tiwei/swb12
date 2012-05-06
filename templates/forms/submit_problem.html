@@ -1,0 +1,10 @@
+<form method="post" action="">
+    {% for form in form %}
+        <ul>
+            <li>title {{ form.title }}</li>
+            <li>description {{ form.description }}</li>
+            <li>skills {{ form.skills }}</li>
+            <li>city {{ form.city }}</li>
+        </ul>
+    {% endfor %}
+</form>
