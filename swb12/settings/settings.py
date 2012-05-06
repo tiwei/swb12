@@ -120,7 +120,7 @@ INSTALLED_APPS = (
     'social_auth',
     'south',
     'launch',
-    'main',
+    #'main', Been removed, not used anymore
     #'core_models',  # doesn't work yet
     'accounts',
     'listing',
