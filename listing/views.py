@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from core_models.models import Problem
 from .forms import SubmitRequest
-
+from .models import ProblemForm
 
 def submit_request(request):
     form = SubmitRequest(request.POST or None)
@@ -24,6 +23,8 @@ def submit_problem(request):
     form = ProblemForm(request.POST or None)
     if form.is_valid():
         new_problem = form.save()
-    return render(request, 'submit_problem.html', {
+        new_problem.user = request.user.get_profile()
+        new_problem.save()
+    return render(request, 'forms/submit_problem.html', {
         'form': form,
     })

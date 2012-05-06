@@ -1,10 +1,17 @@
-<form method="post" action="">
-    {% for form in form %}
-        <ul>
-            <li>title {{ form.title }}</li>
-            <li>description {{ form.description }}</li>
-            <li>skills {{ form.skills }}</li>
-            <li>city {{ form.city }}</li>
-        </ul>
-    {% endfor %}
+{% extends 'base.html' %}
+{%block content%}
+<form action="." method="post" class="form-horizontal">
+	{% csrf_token %}
+	<fieldset>
+		<legend>
+			Add something
+		</legend>
+		{% include "forms/form_snippet.html" %}
+	</fieldset>
+	<div class="form-actions">
+		<button class="btn btn-primary" type="submit">
+			Add
+		</button>
+	</div>
 </form>
+{%endblock%}
