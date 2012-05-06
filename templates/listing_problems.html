@@ -4,8 +4,8 @@
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
       <div class="row">
         <div class="btn-group results-types">
-          <button class="btn active"><h3>Problems ({{ problems_count }})</h3></button>
-          <button class="btn"><h3>Persons ({{ persons_count }})</h3></button>
+          <button class="btn active" href="/listing" ><h3>Problems ({{ problems_count }})</h3></button>
+          <a class="btn" href="/listing/people"> <h3>  Persons ({{ persons_count }}) </h3></a>
         </div>
       </div>
 
@@ -22,7 +22,7 @@
           <p>{{ problem.description }}</p>
         </div>
         <div class="span2">
-          <a class="btn btn-large btn-success">Do it!</a>
+          <a class="btn btn-large btn-success" id="btn{{forloop.counter}}">Do it!</a>
         </div>
       </div>
 {% endfor %}
