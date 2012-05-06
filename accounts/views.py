@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 #from core_models.models import Skill
 from .forms import ProfileForm
@@ -13,6 +13,7 @@ def profile_view(request, template_name='profile.html'):
     form = ProfileForm(request.POST or None, instance=profile)
     if form.is_valid():
         form.save()
+        return redirect(profile_show_view, profile.id)
     context = {
         'skill_list': skill_list,
         'form': form,
