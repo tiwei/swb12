@@ -20,6 +20,7 @@ def listings(request):
         'problems': problems,
         })
 
+
 def listings_persons(request):
     persons = Person.objects.all()
     return render(request, 'listing_persons.html', {
