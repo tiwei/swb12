@@ -1,6 +1,3 @@
-{% extends "base.html" %}
-
-{% block input_form_modal %}
       <div class="modal" id="task-input-modal">
         <div class="modal-header">
           <button class="close" data-dismiss="modal">x</button>
@@ -13,10 +10,23 @@
             <textarea class="span5" rows="5" name="description" type="text"
               placeholder="Describe the task"></textarea>
           </form>
+<form action="." method="post" class="form-horizontal">
+	{% csrf_token %}
+	<fieldset>
+		<legend>
+			Add something
+		</legend>
+		{% include "forms/form_snippet.html" %}
+	</fieldset>
+	<div class="form-actions">
+		<button class="btn btn-primary" type="submit">
+			Add
+		</button>
+	</div>
+</form>
         </div>
         <div class="modal-footer">
           <a href="#" class="btn" data-dismiss="modal">Cancel</a>
           <button type="submit" class="btn btn-primary">Add</button>
         </div>
       </div>
-{% endblock input_form_modal %}

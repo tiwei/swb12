@@ -35,14 +35,14 @@
 		<p>&copy; Company 2012</p>
 	</footer>
 </div>
-{% block input_form_modal %}{% endblock input_form_modal %}
-
+{% include "input_form_modal.html" %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-<script src="js/libs/bootstrap/bootstrap.min.js"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
 
-<script src="js/script.js"></script>
+<script src="{{ STATIC_URL }}js/script.js"></script>
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster 
