@@ -100,3 +100,6 @@ div.star-rating{background:transparent!important;overflow:hidden!important}
 /* END jQuery.Rating Plugin CSS */
 div.rating-cancel { display: none !important;}
 
+#task-input-modal {
+  display: none;
+}

@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from .forms import SubmitRequest
 from .models import ProblemForm
 from .models import Problem
 from django.contrib.auth.models import User
 from accounts.models import UserProfile
 
+@login_required
 def submit_request(request): #we dont use this view anywhere, if you wrote it, please delete or comment where we use it
     form = SubmitRequest(request.POST or None)
     if form.is_valid():
@@ -37,14 +39,14 @@ def listings_persons(request):
         'persons_count':persons_count,
         'problems_count': problems_count,
         })
-    
+
+@login_required
 def submit_problem(request):
     form = ProblemForm(request.POST or None)
+    form.instance.user = request.user
     if form.is_valid():
-        new_problem = form.save()
-        new_problem.user = request.user.get_profile()
-        new_problem.save()
-        return HttpResponseRedirect('listing/people')
+        form.save()
+        return redirect(listings_persons)
     return render(request, 'forms/submit_problem.html', {
         'form': form,
     })

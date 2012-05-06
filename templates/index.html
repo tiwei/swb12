@@ -8,11 +8,11 @@ var ctr = 0;
 
 function initRotateText() {
 	rotatingTextElement = document.getElementById("switch");
-	rotatingText[0] = rotatingTextElement.innerHTML; // store the content that's already on the page
+	rotatingText[0] = rotatingTextElement.innerHTML; 
 	rotatingText[1] = "@johnk I just shot my self <br>in the foot with git, Help!";
-	rotatingText[2] = "@kevink Got techcrunched need, <br>a sysadmin and servers, quick!";
+	rotatingText[2] = "@kevink Got techcrunched! Need <br>a sysadmin and servers, quick!";
 	rotatingText[3] = "<img src='../static/img/skillfinder_1024.png' width='75%'>";
-	setInterval(rotateText, 2000);
+	setInterval(rotateText, 2500);
 }
 function rotateText() {
 	ctr++;
@@ -45,52 +45,51 @@ window.onload = initRotateText;
 <div class="row">
 	<div class="span6">
 		<div class="hero-unit" id="question" align="middle">
-						</br></br></br></br></br></br>
-			<h2>YOUR STARTUP NEEDS HELP?</h2>
-			<br>
+			<h2>NEED HELP?<br>POST YOUR STARTUP PROBLEM!</h2>
+			</br></br></br></br><br></br></br></br></br></br></br>
 
-			<a href='listing/add/'> <img src="../static/img/post_a_problem_btn.png"> </a>
+			<a href='listing/add/'> <img src="../static/img/linkedin.png"> </a>
 		</div>
 	</div>
 	<div class="span6">
 		<div class="hero-unit" id="solution" align="middle">
-			</br></br>
-			</br></br></br><br>
-			<h2>YOU WANT TO HELP A STARTUP?</h2>
-			</br>
+			<h2>YOU ARE AWESOME! <br>HELP A STARTUP!</h2>
+			</br></br></br></br><br></br></br></br></br></br></br>
 			<a href='listing/'>  <img src="../static/img/offer_your_help_btn.png"> </a>
 		</div>
 	</div>
 </div>
 
+<br>
+
 <div class="row">
 	<div class="span12">
-		<h1 style="font-family: 'Allerta', sans-serif;">We help startups that need very specific skills for a short amount of time so the job can be done as a favor</h1></br>
+		<h1 style="font-family: 'Allerta', sans-serif;">OUR MISSION</h1>
+		<br>
+		<h1 style="font-family: 'Allerta', sans-serif;">We help <span style="color: #f05501;">startups</span> that need very specific skills for a short amount of time so the job can be done as a <span style="color: #089644;">favor</span>.</h1></br>
 	</div>
 </div>
+<br><br><br>
 
 
 
 <!-- Example row of columns -->
-
 <div class="row">
-	<div class="span4">
-		<h2>TIM</h2>
-		<h4>Designer at Soundcloud</h4>
-		<p>Tim loves to build his startup. He worked in the Bay Area. And knows a lot about VC. Tim need help to design cool thinks. And loves to meet you as his rockstar designer.</p>
-		<p><a class="btn" href="#">View details &raquo;</a></p>
-	</div>
-	<div class="span4">
-		<h2>CHRIS</h2>
-		<h4>CEO at ebay</h4>
-		<p>Chris loves his new webstore. He is a great marketer. Works day and night for his costumers. Chris need advise in legal stuff. Be his rockstar laywer for a few hours. </p>
-		<p><a class="btn" href="#">View details &raquo;</a></p>
-	</div>
-	<div class="span4">
-		<h2>TOM IS</h2>
-		<h4>COO at instagram</h4>
-		<p>Tom loves to make the world know. And to promote mobile stuff. He knows whats the next big thing. But now he need the best dev on earth - to make some hot shit.</p>
-		<p><a class="btn" href="#">View details &raquo;</a></p>
+	<div class="span12">
+		<h1 style="font-family: 'Allerta', sans-serif;">PARTNERS</br>
 	</div>
 </div>
+<br>
+<div class="row">
+	<div class="span4" style="height: 100px;">
+		<img src="../static/img/SW.png" width="300px">
+	</div>
+	<div class="span4">
+		<img src="../static/img/Deskwanted.png" width="300px">
+	</div>
+	<div class="span4">
+		
+	</div>
+</div>
+<br><br>
 {% endblock content %}
