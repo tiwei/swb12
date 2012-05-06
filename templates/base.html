@@ -16,9 +16,11 @@
 		<div class="container">
 			<a class="brand" href="{% url index %}"><img src="{{ STATIC_URL }}img/logo.png" alt="Favors"></a> 
 			<div class="nav-collapse  pull-right">
-				<ul class="nav">              
-					<li><a href="#">Home</a></li>
-					<li class="divider-vertical"></li>
+				<ul class="nav">
+					{% if user.is_authenticated %}
+						<li><a href="{% url logout %}">Sign out</a></li>
+						<li class="divider-vertical"></li>
+					{% endif %}
 					<li><a href="{% url accounts_profile %}">Profile</a></li>
 					<li class="divider-vertical"></li>
 				</ul>
