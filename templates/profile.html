@@ -8,6 +8,20 @@
 		</li>
 	{% endfor %}
 </ul>
+<form action="." method="post" class="form-horizontal">
+	{% csrf_token %}
+	<fieldset>
+		<legend>
+			Profile
+		</legend>
+		{% include "form_snippet.html" %}
+	</fieldset>
+	<div class="form-actions">
+		<button class="btn btn-primary" type="submit">
+			Save
+		</button>
+	</div>
+</form>
 <div class="row">
 	&nbsp;
 </div>
