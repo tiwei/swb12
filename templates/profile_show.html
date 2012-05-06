@@ -2,27 +2,13 @@
 
 {% block content %}
 <ul>
-	{% for skill in skill_list %}
+	{% for skill in profile.skills_offered.all %}
 		<li>
-			{{ skill.name }}
+			{{ skill }}
 		</li>
 	{% endfor %}
 </ul>
-url: {% url accounts_profile_show profile.id %}
-<form action="." method="post" class="form-horizontal">
-	{% csrf_token %}
-	<fieldset>
-		<legend>
-			Profile
-		</legend>
-		{% include "forms/form_snippet.html" %}
-	</fieldset>
-	<div class="form-actions">
-		<button class="btn btn-primary" type="submit">
-			Save
-		</button>
-	</div>
-</form>
+{{ profile.user.get_full_name }}
 <div class="row">
 	&nbsp;
 </div>
@@ -43,10 +29,10 @@ url: {% url accounts_profile_show profile.id %}
 				<input name="star1" type="radio" class="star star1" disabled="disabled"/>
 				<br/>
 				<div id="socials">
-					<a href="/"><img src="{{ STATIC_URL }}img/face.png"/></a>
-					<a href="/"><img src="{{ STATIC_URL }}img/in.png"/></a>
-					<a href="/"><img src="{{ STATIC_URL }}img/tw.png"/></a>
-					<a href="/"><img src="{{ STATIC_URL }}img/del.png"/></a>
+					<a href="/"><img src="img/face.png"/></a>
+					<a href="/"><img src="img/in.png"/></a>
+					<a href="/"><img src="img/tw.png"/></a>
+					<a href="/"><img src="img/del.png"/></a>
 				</div>
 			</div>
 		</div>
@@ -101,8 +87,8 @@ url: {% url accounts_profile_show profile.id %}
 		<script type="text/javascript">
 		var tags = [{tag: "python", count: 76}, {tag: "mobile" , count :32}, {tag: "php" , count :4}, {tag: "ruby" , count :20},
 		{tag: "html5" , count :87},{tag: "ios" , count :34},{tag: "iphone" , count :30},{tag: "mootools" , count :87},
-		{tag: "javascript" , count :45},{tag: "startup" , count :90},{tag: "contract-revenue" , count :18},{tag: "pitch-training" , count :60},
-		{tag: "event-management" , count :67},{tag: "pitching" , count :10},{tag: "jquery" , count :50},{tag: "coffeescript" , count :24},
+		{tag: "javascript" , count :45},{tag: "startup" , count :90},{tag: "contract-revenue" , count :22},{tag: "pitch-training" , count :60},
+		{tag: "event-management" , count :67},{tag: "pitching" , count :10},{tag: "jquery" , count :50},{tag: "coffeescript" , count :14},
 		{tag: "nodejs" , count :30},{tag: "nosql" , count :9}];
 		</script>
 	</div>
