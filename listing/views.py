@@ -19,7 +19,12 @@ def listings(request):
     return render(request, 'listing_problems.html', {
         'problems': problems,
         })
-    
+
+def peoplelist(request):
+    #Do something
+    return
+
+
 def submit_problem(request):
     form = ProblemForm(request.POST or None)
     if form.is_valid():
