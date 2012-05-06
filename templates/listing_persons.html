@@ -4,7 +4,7 @@
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
       <div class="row">
         <div class="btn-group results-types">
-          <a class="btn" href="/listing"> <h3>Problems ({{ problems_count }}) </h3></a>
+          <a class="btn" href=" listing"> <h3>Problems ({{ problems_count }}) </h3></a>
           <button class="btn active"><h3>Persons ({{ persons_count }})</h3></button>
           
         </div>
@@ -20,15 +20,13 @@
             {% endfor %}
           </div>
           <p> 
-Person.company
-Person.city
-Person.twitter
-Person.linkedIn
- </p>
+{{ person.company }}
+From : {{person.city }}, {{person.country }}
+</p>
           
         </div>
         <div class="span2">
-          <a class="btn btn-large btn-success">Ping {{ person.user }}!</a>
+          <a class="btn btn-large btn-success">Ping {{ person.user.first_name }}!</a>
         </div>
       </div>
 {% endfor %}
