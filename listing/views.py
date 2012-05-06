@@ -16,8 +16,15 @@ def submit_request(request):
 
 def listings(request):
     problems = Problem.objects.all()
-    return render(request, 'listing.html', {
+    return render(request, 'listing_problems.html', {
         'problems': problems,
+        })
+
+
+def listings_persons(request):
+    persons = Person.objects.all()
+    return render(request, 'listing_persons.html', {
+        'persons': persons,
         })
     
 def submit_problem(request):
@@ -26,6 +33,7 @@ def submit_problem(request):
         new_problem = form.save()
         new_problem.user = request.user.get_profile()
         new_problem.save()
+        return HttpResponseRedirect('listing/people')
     return render(request, 'forms/submit_problem.html', {
         'form': form,
     })
