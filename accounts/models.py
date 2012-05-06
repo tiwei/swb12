@@ -11,9 +11,15 @@ class Country(models.Model):
     code = models.CharField(max_length=5)
     name = models.CharField(max_length=100, blank=True, null=True)
 
+    def __unicode__(self):
+        return self.name or self.code
+
 
 class City(models.Model):
     name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
 
 
 class Skill(models.Model):
