@@ -16,6 +16,14 @@ def submit_request(request):
 
 def listings(request):
     problems = Problem.objects.all()
-    return render(request, 'listing/listing.html', {
+    return render(request, 'listing.html', {
         'problems': problems,
         })
+    
+def submit_problem(request):
+    form = ProblemForm(request.POST or None)
+    if form.is_valid():
+        new_problem = form.save()
+    return render(request, 'submit_problem.html', {
+        'form': form,
+    })

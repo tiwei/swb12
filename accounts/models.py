@@ -3,8 +3,9 @@ from django.db import models
 from django.db.models.signals import post_save
 from social_auth.signals import socialauth_registered
 
+''' Problems is now part of Listing models
 class Problem(models.Model):
-    pass
+    pass'''
 
 class Country(models.Model):
     code = models.CharField(max_length=5)
@@ -28,6 +29,9 @@ class UserProfile(models.Model):
     city = models.ForeignKey(City, null=True)
     skills_offered = models.ManyToManyField(Skill, related_name='offered_set')
     skills_wanted = models.ManyToManyField(Skill, related_name='wanted_set')
+    #Noted skills will be added after the user interacts with a problem and recieve feedback
+    #TODO add it to Migration
+    skills_noted = models.ManyToManyField(Skill, related_name='noted_skills')
 
     def __unicode__(self):
         return self.user.username

@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'main',
     #'core_models',  # doesn't work yet
     'accounts',
+    'listing',
 )
 
 # A sample logging configuration. The only tangible logging

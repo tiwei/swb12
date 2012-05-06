@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     #Listings
     url(r'^$', listings,
         name='listings'),
+                       
 )
