@@ -5,7 +5,7 @@ from django.template import RequestContext
 
 
 @login_required
-def profile_view(request, template_name='accounts/profile.html'):
+def profile_view(request, template_name='profile.html'):
     skill_list = request.user.get_profile().skills_offered.all()
     context = {
         'skill_list': skill_list,
