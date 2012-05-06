@@ -62,9 +62,21 @@ body {
 }
 
 #bigbanner {
-	background-image: url('../img/guy_banner.png') !important;
+	background-image: url('../img/background_banner.png') !important;
 	background-repeat:no-repeat;
 	background-position:right bottom;
+}
+
+#question {
+	background-image: url('../img/new_head_questions.png') !important;
+	background-repeat:no-repeat;
+	background-position:center bottom;
+}
+
+#solution {
+	background-image: url('../img/new_head_solutions.png') !important;
+	background-repeat:no-repeat;
+	background-position:center bottom;
 }
 
 /* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */

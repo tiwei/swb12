@@ -1,12 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<script type="text/javascript">
+var rotatingTextElement;
+var rotatingText = new Array();
+var ctr = 0;
+
+function initRotateText() {
+rotatingTextElement = document.getElementById("switch");
+rotatingText[0] = rotatingTextElement.innerHTML; // store the content that's already on the page
+rotatingText[1] = "automate my Tweets";
+rotatingText[2] = "recruit new Developers";
+setInterval(rotateText, 2000);
+}
+function rotateText() {
+ctr++;
+if(ctr >= rotatingText.length) {
+ctr = 0;
+}
+rotatingTextElement.innerHTML = rotatingText[ctr];
+}
+window.onload = initRotateText;
+</script>
+
 <div class="row">
 	<div class="span12">
 		<div class="hero-unit" id="bigbanner">
 			<div class="row">
-				<div class="span5">
-					<img src="../static/img/logo_banner.png">
+				<div class="span10">
+					<!-- ><img src="../static/img/logo_banner.png" width="50%"> -->
+					<h1>How am I going to <br><span id="switch">add Facebook Login</span>?</h1>
 				</div>
 			</div>
 		</div>
@@ -16,30 +39,26 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="row">
 	<div class="span6">
-		<div class="hero-unit">
-			<h2>YOU NEED A ROCKSTAR?</h2></br>
-			<img src="../static/img/questions.png"><br>
-			<form>
-				<input type="text" class="input-medium search-query">
-				<button type="submit" class="btn">Search</button>
-			</form>
+		<div class="hero-unit" id="question" align="middle">
+			<h2>YOUR STARTUP NEEDS HELP?</h2>
+			</br></br></br>
+			</br></br></br></br></br></br></br></br>
+			<img src="../static/img/post_a_problem_btn.png">
 		</div>
 	</div>
 	<div class="span6">
-		<div class="hero-unit">
-			<h2>YOU ARE A ROCKSTAR?</h2></br>
-			<img src="../static/img/solutions.png"><br>
-			<form>
-				<input type="text" class="span3" placeholder="Enter your E-mail to sign in...">
-				<button type="submit" class="btn">Sign Up</button>
-			</form>
+		<div class="hero-unit" id="solution" align="middle">
+			<h2>YOU WANT TO HELP A STARTUP?</h2>
+			</br></br></br>
+			</br></br></br></br></br></br></br></br>
+			<img src="../static/img/offer_your_help_btn.png">
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="span12">
-		<h2>Examples</h2></br>
+		<h2>We help startups that need very specific skills for a short amount of time so the job can be done as a favor</h2></br>
 	</div>
 </div>
 
@@ -49,19 +68,19 @@
 
 <div class="row">
 	<div class="span4">
-		<h2>TIM IS A ROCKSTAR</h2>
+		<h2>TIM</h2>
 		<h4>Designer at Soundcloud</h4>
 		<p>Tim loves to build his startup. He worked in the Bay Area. And knows a lot about VC. Tim need help to design cool thinks. And loves to meet you as his rockstar designer.</p>
 		<p><a class="btn" href="#">View details &raquo;</a></p>
 	</div>
 	<div class="span4">
-		<h2>CHRIS IS A ROCKSTAR</h2>
+		<h2>CHRIS</h2>
 		<h4>CEO at ebay</h4>
 		<p>Chris loves his new webstore. He is a great marketer. Works day and night for his costumers. Chris need advise in legal stuff. Be his rockstar laywer for a few hours. </p>
 		<p><a class="btn" href="#">View details &raquo;</a></p>
 	</div>
 	<div class="span4">
-		<h2>TOM IS A ROCKSTAR</h2>
+		<h2>TOM IS</h2>
 		<h4>COO at instagram</h4>
 		<p>Tom loves to make the world know. And to promote mobile stuff. He knows whats the next big thing. But now he need the best dev on earth - to make some hot shit.</p>
 		<p><a class="btn" href="#">View details &raquo;</a></p>
