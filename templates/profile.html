@@ -2,7 +2,7 @@
 
 {% block content %}
 <a href="{% url accounts_profile_show profile.id %}">
-	{% url accounts_profile_show profile.id %}
+	{{ profile.user.get_full_name }}
 </a>
 <form action="." method="post" class="form-horizontal">
 	{% csrf_token %}
