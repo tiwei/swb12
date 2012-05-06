@@ -4,33 +4,35 @@
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
       <div class="row">
         <div class="btn-group results-types">
-          <button class="btn active"><h3>Problems ({{ problems.counter }})</h3></button>
-          <button class="btn"><h3>Persons ({{ persons.counter }})</h3></button>
+          <a class="btn" href="/listing"> <h3>Problems ({{ problems_count }}) </h3></a>
+          <button class="btn active"><h3>Persons ({{ persons_count }})</h3></button>
+          
         </div>
       </div>
 
-{% for problem in problems %}
+{% for person in persons %}
       <div class="row well task-list-item">
         <div class="span9">
-          <h3>{{ problem.title }}</h3>
+          <h3>{{ person.user.get_full_name }}</h3>
           <div class="tag-list">
-            {% for skill in problem.skills.all %}
+            {% for skill in person.skills_offered.all %}
               <span class="label label-success">{{ skill.name }}</span>
             {% endfor %}
           </div>
-          <p><a>{{ problem.user.name }}</a> from <a>{{
-            problem.user.company }}</a></p>
-          <p>{{ problem.description }}</p>
+          <p> 
+Person.company
+Person.city
+Person.twitter
+Person.linkedIn
+ </p>
+          
         </div>
         <div class="span2">
-          <a class="btn btn-large btn-success">Do it!</a>
+          <a class="btn btn-large btn-success">Ping {{ person.user }}!</a>
         </div>
       </div>
 {% endfor %}
 
       <hr>
-      <a class="btn" data-toggle="modal" href="#task-input-modal">
-        Add Task
-      </a>
 
 {% endblock content %}

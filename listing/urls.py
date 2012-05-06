@@ -6,5 +6,5 @@ urlpatterns = patterns('',
     #Listings
     url(r'^$', listings, name='listings'),
         (r'^add/$', 'listing.views.submit_problem'),
-                       
+        (r'^people/$', 'listing.views.listings_persons'),
 )
