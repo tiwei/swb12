@@ -4,8 +4,8 @@
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
       <div class="row">
         <div class="btn-group results-types">
-          <button class="btn active"><h3>Problems ({{ problems.counter }})</h3></button>
-          <button class="btn"><h3>Persons ({{ persons.counter }})</h3></button>
+          <button class="btn active"><h3>Problems ({{ problems_count }})</h3></button>
+          <button class="btn"><h3>Persons ({{ persons_count }})</h3></button>
         </div>
       </div>
 
@@ -18,8 +18,7 @@
               <span class="label label-success">{{ skill.name }}</span>
             {% endfor %}
           </div>
-          <p><a>{{ problem.user.name }}</a> from <a>{{
-            problem.user.company }}</a></p>
+          <p><a href=" url accounts.views.profile_show_view.id ">{{ problem.user }}</a> from <a>{{ problem.company }}</a></p>
           <p>{{ problem.description }}</p>
         </div>
         <div class="span2">
@@ -29,8 +28,8 @@
 {% endfor %}
 
       <hr>
-      <a class="btn" data-toggle="modal" href="#task-input-modal">
-        Add Task
+      <a class="btn" data-toggle="modal" href="add">
+        Submit Problem
       </a>
 
 {% endblock content %}
