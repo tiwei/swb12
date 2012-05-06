@@ -15,7 +15,13 @@ body {
  	border: none;
  }
  
+.navbar {
+	background-color: #f05501;
+	}
 
+.navbar-inner {
+  margin-top: 5px;
+}
 
 
 #skills {
