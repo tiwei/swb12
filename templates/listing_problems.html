@@ -18,7 +18,7 @@
               <span class="label label-success">{{ skill.name }}</span>
             {% endfor %}
           </div>
-          <p><a href=" url accounts.views.profile_show_view.id ">{{ problem.user }}</a> from <a>{{ problem.company }}</a></p>
+          <p><a href="{%url accounts_profile_show problem.user.id %}">{{ problem.user }}</a> from <a>{{ problem.company }}</a></p>
           <p>{{ problem.description }}</p>
         </div>
         <div class="span2">
